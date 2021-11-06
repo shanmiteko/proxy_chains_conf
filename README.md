@@ -16,5 +16,5 @@ $ ./check_proxy.sh proxy_list.txt | tee proxychains.conf
 ```
 ### 使用proxychains4
 ```sh
-$ proxychains4 #代理可执行程序
+$ proxychains4 curl -s httpbin.org/ip #代理可执行程序
 ```
