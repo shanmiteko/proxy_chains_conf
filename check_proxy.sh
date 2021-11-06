@@ -4,7 +4,7 @@ test_url="https://api.bilibili.com/client_info"
 alias parse_json='jq ".data .ip"'
 
 real_ip=$(curl --connect-timeout 3 -fs $test_url | parse_json)
-echo "#real_ip:$real_ip"
+# echo "#real_ip:$real_ip"
 
 # ProxyChains4 proxychains.conf
 # echo "round_robin_chain"
