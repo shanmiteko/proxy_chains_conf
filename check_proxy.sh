@@ -1,5 +1,13 @@
 #!/bin/sh
-file=$1
+
+if [[ -n $1 ]]
+then
+	file=$1
+else
+	echo "Usage: $0 <file.txt>"
+	exit 0
+fi
+
 test_url="https://api.bilibili.com/client_info"
 alias parse_json='jq ".data .ip"'
 
@@ -16,7 +24,7 @@ echo "[ProxyList]"
 while read line
 do {
 	client_info=$(curl -x http://$line --connect-timeout 3 -fs $test_url)
-    if [[ -n $client_info ]]
+	if [[ -n $client_info ]]
 	then
 		ip=$(echo $client_info | parse_json)
 		ip_port=$(echo $line | tr ":" "\t")

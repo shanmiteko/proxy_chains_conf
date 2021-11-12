@@ -15,3 +15,5 @@ for HTTP_PROXY_LIST in ${HTTP_PROXY_LISTS[@]}; do
 	curl -sL $HTTP_PROXY_LIST >> $LIST_FILE
 	echo "<- $HTTP_PROXY_LIST"
 done
+
+echo "print to $LIST_FILE"
